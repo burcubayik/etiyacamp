@@ -10,48 +10,76 @@ import eTrade.dataAccess.abstracts.UserDao;
 import eTrade.entities.concretes.User;
 
 public class UserManager implements UserService {
-UserDao userDao;
-VerificationEmailService verificationEmailService;
-public UserManager(UserDao userDao,VerificationEmailService verificationEmailService) {
-	this.userDao = userDao;
-	this.verificationEmailService = verificationEmailService;
-}
+	UserDao userDao;
+	VerificationEmailService verificationEmailService;
+
+	public UserManager(UserDao userDao, VerificationEmailService verificationEmailService) {
+		this.userDao = userDao;
+		this.verificationEmailService = verificationEmailService;
+	}
+
 	@Override
 	public void add(User user) throws Exception {
+		checkIfUserFirstNameShort(user);
+		checkIfUserLastNameShort(user);
 		checkIfUserPasswordIsShort(user);
 		checkIfUserEmailFormatWrong(user);
+		checkIfUserEmailExists(user);
 		checkIfVerificationEmailSended(user);
+
 		userDao.add(user);
-		
+
 	}
+
 	@Override
 	public List<User> getAll() {
-		
+
 		return this.userDao.getAll();
 	}
+
 	private void checkIfUserPasswordIsShort(User user) throws Exception {
-		if(user.getPassword().length()<6) {
+		if (user.getPassword().length() < 6) {
 			throw new Exception();
 		}
 	}
-	
+
 	private void checkIfUserEmailFormatWrong(User user) throws Exception {
 		String REGEX = "^(.+)@(.+)$";
 		Pattern pattern = Pattern.compile(REGEX);
 		Matcher matcher = pattern.matcher(user.getEmail());
-		
-		if(!matcher.matches()) {
-			throw new Exception();
-		}
-	}
-	
-	private void checkIfVerificationEmailSended(User user) throws Exception {
-		if(!this.verificationEmailService.verificationEmail(user)) {
-			
-			throw new Exception();
-		}
-	}
-	
-	
 
+		if (!matcher.matches()) {
+			throw new Exception();
+		}
+	}
+
+	private void checkIfVerificationEmailSended(User user) throws Exception {
+		if (!this.verificationEmailService.verificationEmail(user)) {
+
+			throw new Exception();
+		}
+	}
+
+	private void checkIfUserEmailExists(User user) throws Exception {
+
+		for (User item : this.userDao.getAll()) {
+
+			if (user.getEmail() == item.getEmail()) {
+				throw new Exception();
+			}
+		}
+
+	}
+
+	private void checkIfUserFirstNameShort(User user) throws Exception {
+		if (user.getFirstName().length() < 2) {
+			throw new Exception();
+		}
+	}
+
+	private void checkIfUserLastNameShort(User user) throws Exception {
+		if (user.getLastName().length() < 2) {
+			throw new Exception();
+		}
+	}
 }

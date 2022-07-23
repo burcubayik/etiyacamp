@@ -10,8 +10,10 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		User user1 = new User(1, "Burcu", "Bayık", "SS@AAA.NN", "r6g5gg");
+		User user2 = new User(1, "Burcu", "Bayık", "SS@AAA.NN", "r6g5gg");
 		UserService userService = new UserManager(new HibernateUserDao(),new VerificationEmailAdapter());
 		userService.add(user1);
+		userService.add(user2);
 		
 		for (User user : userService.getAll()) {
 			System.out.println(user.getFirstName());
