@@ -21,4 +21,15 @@ public class HibernateUserDao implements UserDao{
 		return users;
 	}
 
+	@Override
+	public User getById(int id) {
+		 User findToUser = null;
+	        for (User user : users) {
+	            if (user.getId() == id) {
+	                findToUser = user;
+	            }
+	        }
+	        return findToUser;
+	}
+
 }
