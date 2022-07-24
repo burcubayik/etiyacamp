@@ -1,6 +1,6 @@
 package kodlamaio;
 
-public class InstructorManager {
+public class InstructorManager extends UserManager {
 	
 
 }

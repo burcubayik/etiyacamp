@@ -5,13 +5,13 @@ public class Main {
 	public static void main(String[] args) {
 		String a = "Yazılım Geliştirici Yetiştirme Kampı";
 		
-		Instructor instructor1 = new Instructor(1, "Engin", "Demiroğ", "Yazılım");
-		Instructor instructor2 = new Instructor(2, "Murat", "Yücedağ", "Yazılım");
+		Instructor instructor1 = new Instructor(1, "Engin", "Demiroğ", "Yazılım","gfh",1129,"sffr");
+		//Instructor instructor2 = new Instructor(2, "Murat", "Yücedağ", "Yazılım");
 		Category category1 = new Category(1,"programlama");
 		
 		Course course1 = new Course(1, a + "(C# + ANGULAR)", 90, instructor1, category1);
 		Course course2 = new Course(2, a + "(JAVA + REACT)", 100, instructor1, category1);
-		Course course3 = new Course(3, a + "(JavaScript)", 0, instructor2, category1);
+		Course course3 = new Course(3, a + "(JavaScript)", 0,instructor1 , category1);
 		Course course4 = new Course(4, "Programlamaya Giriş İçin Temel Kurs", 100, instructor1,category1);
 		Course course5 = new Course(4, "Programlamaya Giş İçin Temel Kurs", 100, instructor1,category1);
 		Course course6 = new Course(4, "Programmaya Giriş İçin Temel Kurs", 100, instructor1,category1);
@@ -29,7 +29,8 @@ public class Main {
 		courseManager.add(course5);
 		courseManager.add(course6);
 		
-		
+		UserManager userManager = new UserManager();
+		userManager.add(instructor1);
 		
 		
 		for(int i = 0; i <= courseManager.getAll().size(); i++) {
