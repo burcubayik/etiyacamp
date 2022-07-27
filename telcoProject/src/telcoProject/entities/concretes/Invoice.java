@@ -1,25 +1,29 @@
 package telcoProject.entities.concretes;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Invoice {
 	private int id;
 	private Subscription subscription;
 	private LocalDate dateCreated;
 	private LocalDate dueDate;
+	private Payment payment;
 	
 	public Invoice() {
 		super();
 	}
 
-	public Invoice(int id, Subscription subscription, LocalDate dateCreated, LocalDate dueDate) {
+	public Invoice(int id, Subscription subscription, LocalDate dateCreated, LocalDate dueDate, Payment payments) {
 		super();
 		this.id = id;
 		this.subscription = subscription;
 		this.dateCreated = dateCreated;
 		this.dueDate = dueDate;
+		this.payment = payment;
 	}
 
+	
 	public int getId() {
 		return id;
 	}
@@ -51,7 +55,16 @@ public class Invoice {
 	public void setDueDate(LocalDate dueDate) {
 		this.dueDate = dueDate;
 	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
 	
-	
+
+
 
 }

@@ -10,8 +10,8 @@ public class CorporateCustomer extends Customer{
 		super();
 	}
 
-	public CorporateCustomer(int id, String customerNumber,String companyName, String taxNumber,List<Subscription> subscriptions) {
-		super(id, customerNumber,subscriptions);
+	public CorporateCustomer(int id, String customerNumber,String companyName, String taxNumber,List<CustomerAddress> customerAddresses) {
+		super(id, customerNumber,customerAddresses);
 		this.companyName = companyName;
 		this.taxNumber = taxNumber;
 	}

@@ -2,20 +2,18 @@ package telcoProject.entities.concretes;
 
 import java.util.List;
 
-public class Service {
+public class Brand {
 	private int id;
 	private String name;
-	private List<Subscription> subscriptions;
 	private List<Product> products;
-	public Service() {
+	public Brand() {
 		super();
 	}
-	public Service(int id, String name,List<Subscription> subscriptions, List<Product> products) {
+	public Brand(int id, String name, List<Product> products) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.subscriptions = subscriptions;
-		this.products =products;
+		this.products= products;
 	}
 	public int getId() {
 		return id;
@@ -28,12 +26,6 @@ public class Service {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public List<Subscription> getSubscriptions() {
-		return subscriptions;
-	}
-	public void setSubscriptions(List<Subscription> subscriptions) {
-		this.subscriptions = subscriptions;
 	}
 	public List<Product> getProducts() {
 		return products;

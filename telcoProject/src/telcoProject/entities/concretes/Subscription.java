@@ -9,18 +9,27 @@ public class Subscription {
 	private Service service;
 	private LocalDate dateStarted;
 	private List<Invoice> invoices;
+	private List<Pack> packs;
+	private CustomerAddress customerAddress;
 	public Subscription() {
 		super();
 	}
 	
-	public Subscription(int id, Customer customer, Service service, LocalDate dateStarted,List<Invoice> invoices) {
+	
+
+	public Subscription(int id, Customer customer, Service service, LocalDate dateStarted, List<Invoice> invoices,
+			List<Pack> packs, CustomerAddress customerAddress) {
 		super();
 		this.id = id;
 		this.customer = customer;
 		this.service = service;
 		this.dateStarted = dateStarted;
 		this.invoices = invoices;
+		this.packs = packs;
+		this.customerAddress = customerAddress;
 	}
+
+
 
 	public List<Invoice> getInvoices() {
 		return invoices;
@@ -60,6 +69,30 @@ public class Subscription {
 
 	public void setDateStarted(LocalDate dateStarted) {
 		this.dateStarted = dateStarted;
+	}
+
+
+
+	public List<Pack> getPacks() {
+		return packs;
+	}
+
+
+
+	public void setPacks(List<Pack> packs) {
+		this.packs = packs;
+	}
+
+
+
+	public CustomerAddress getCustomerAddress() {
+		return customerAddress;
+	}
+
+
+
+	public void setCustomerAddress(CustomerAddress customerAddress) {
+		this.customerAddress = customerAddress;
 	}
 	
 

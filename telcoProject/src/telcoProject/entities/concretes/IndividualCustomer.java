@@ -9,8 +9,8 @@ public class IndividualCustomer extends Customer {
 	public IndividualCustomer() {
 		super();
 	}
-	public IndividualCustomer(int id, String customerNumber,String nationalIdentity, String firstName, String lastName,List<Subscription> subscriptions) {
-		super(id,customerNumber,subscriptions);
+	public IndividualCustomer(int id, String customerNumber,String nationalIdentity, String firstName, String lastName,List<CustomerAddress> customerAddresses) {
+		super(id,customerNumber,customerAddresses);
 		this.nationalIdentity = nationalIdentity;
 		this.firstName = firstName;
 		this.lastName = lastName;

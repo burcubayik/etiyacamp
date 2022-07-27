@@ -5,17 +5,17 @@ import java.util.List;
 public class Customer {
 	private int id;
 	private String customerNumber;
-	private List<Subscription> subscriptions;
+	private List<CustomerAddress> customerAddresses;
 	
 	public Customer() {
 		super();
 	}
 	
-	public Customer(int id, String customerNumber, List<Subscription> subscriptions) {
+	public Customer(int id, String customerNumber, List<CustomerAddress> customerAddresses) {
 		super();
 		this.id = id;
 		this.customerNumber = customerNumber;
-		this.subscriptions = subscriptions;
+		this.customerAddresses = customerAddresses;
 	}
 
 	public int getId() {
@@ -31,10 +31,15 @@ public class Customer {
 		this.customerNumber = customerNumber;
 	}
 	
-	public List<Subscription> getSubscriptions() {
-		return subscriptions;
+
+	public List<CustomerAddress> getCustomerAddresses() {
+		return customerAddresses;
 	}
-	public void setSubscription(List<Subscription> subscriptions) {
-		this.subscriptions = subscriptions;
+
+	public void setCustomerAddresses(List<CustomerAddress> customerAddresses) {
+		this.customerAddresses = customerAddresses;
 	}
+
+	
+	
 }
